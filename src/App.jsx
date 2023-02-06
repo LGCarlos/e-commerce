@@ -10,15 +10,16 @@ import Home from './pages/home';
 import Detail from './pages/detail';
 import Error from './pages/error';
 import Context from './context/StaticContext';
+import { PATH } from './constants';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: `${PATH.home}`,
     element: <Home />,
     errorElement: <Error />,
   },
   {
-    path: '/detail',
+    path: `${PATH.detail}/:productId`,
     element: <Detail />,
     errorElement: <Error />,
   },
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const getProductsList = async () => {
-      const url = 'https://2gm2eu9uuw.us-east-1.awsapprunner.com/api/product';
+    const getProductList = async () => {
+      const url = process.env.REACT_APP_API_URL_PRODUCTS;
       const { data } = await axios.get(url);
       setProducts(data);
       setTimeout(() => {
         setProducts([]);
       }, 1000 * 60 * 60);
     };
-    getProductsList();
+    getProductList();
   }, []);
   return (
     <div className="App">
