@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { DESCRIPTION } from '../../constants';
+import Description from '../../components/description';
+import style from './detail.module.css';
 
 function Detail() {
   const { productId } = useParams();
@@ -15,8 +18,23 @@ function Detail() {
     };
     getProductDetail();
   }, []);
+
   return (
-    <h1>{product && product.id}</h1>
+    <div>
+      <div>
+        <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
+      </div>
+      <div>
+        <div>
+          <h1>{DESCRIPTION}</h1>
+          <Description data={product} />
+        </div>
+        <div>
+          <h1>ACTIONS</h1>
+        </div>
+      </div>
+
+    </div>
   );
 }
 

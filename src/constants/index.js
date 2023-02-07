@@ -16,6 +16,7 @@ const PLACEHOLDER = 'Find a product...';
 const NO_RESULTS = 'Not matched results';
 const LOGO_TEXT = 'Company logo';
 const BASKET_TEXT = 'Basket image';
+const DESCRIPTION = 'Description';
 
 module.exports = {
   BUTTON_TYPE,
@@ -26,4 +27,5 @@ module.exports = {
   NO_RESULTS,
   LOGO_TEXT,
   BASKET_TEXT,
+  DESCRIPTION,
 };
