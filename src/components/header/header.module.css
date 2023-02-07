@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  background-color: rgb(254, 248, 202);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container__basket {
+  display: flex;
+}
+.basket__number {
+  background: red;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin-left: -0.3rem;
+}
+img {
+  width: 2rem;
+}

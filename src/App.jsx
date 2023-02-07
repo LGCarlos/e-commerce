@@ -11,6 +11,7 @@ import Detail from './pages/detail';
 import Error from './pages/error';
 import Context from './context/StaticContext';
 import Loader from './components/loader';
+import Header from './components/header';
 import { PATH } from './constants';
 
 const router = createBrowserRouter([
@@ -54,6 +55,7 @@ function App() {
   return (
     <div className="App">
       <Context.Provider value={products}>
+        <Header />
         {
           loaded
             ? <RouterProvider router={router} />
