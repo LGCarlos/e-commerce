@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, {
-  useContext,
+  useContext, useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 import ContextProducts from '../../context/StaticContext';
@@ -8,12 +8,15 @@ import style from './home.module.css';
 import { BUTTON_TYPE, PATH } from '../../constants';
 
 function Home() {
+  const start = 0;
   const Products = [...useContext(ContextProducts)];
+  const [end, setEnd] = useState(20);
+
   return (
     <ul className={style.wrapper}>
       {
         Products
-          ? Products.map(({
+          ? Products.slice(start, end).map(({
             id, brand, imgUrl, model, price,
           }) => (
             <li className={style.card} key={id}>
@@ -29,6 +32,11 @@ function Home() {
           ))
           : null
       }
+      {
+        end >= Products.length
+          ? null
+          : <button type="button" onClick={() => setEnd(end + 20)}>See More</button>
+}
     </ul>
   );
 }
