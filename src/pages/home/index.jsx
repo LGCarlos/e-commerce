@@ -2,7 +2,7 @@
 import React, {
   useContext, useEffect, useState,
 } from 'react';
-import ContextProducts from '../../context/StaticContext';
+import { ContextProducts } from '../../context/StaticContext';
 import style from './home.module.css';
 import {
   BUTTON_TYPE, START,
