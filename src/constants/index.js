@@ -1,5 +1,6 @@
 const BUTTON_TYPE = {
   detail: 'Detail',
+  more: 'See more',
   back: 'Go back',
 };
 

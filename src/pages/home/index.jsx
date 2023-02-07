@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ContextProducts from '../../context/StaticContext';
 import style from './home.module.css';
 import { BUTTON_TYPE, PATH } from '../../constants';
+import Button from '../../components/button';
 
 function Home() {
   const start = 0;
@@ -26,7 +27,7 @@ function Home() {
               <h5>{model}</h5>
               <p>{price}</p>
               <Link to={`${PATH.detail}/${id}`}>
-                <button type="button">{BUTTON_TYPE.detail}</button>
+                <Button buttonText={BUTTON_TYPE.detail} />
               </Link>
             </li>
           ))
@@ -35,7 +36,7 @@ function Home() {
       {
         end >= Products.length
           ? null
-          : <button type="button" onClick={() => setEnd(end + 20)}>See More</button>
+          : <Button handleClick={() => setEnd(end + 20)} buttonText={BUTTON_TYPE.more} />
 }
     </ul>
   );
