@@ -2,33 +2,26 @@
 import React, {
   useContext, useState,
 } from 'react';
-import { Link } from 'react-router-dom';
 import ContextProducts from '../../context/StaticContext';
 import style from './home.module.css';
-import { BUTTON_TYPE, PATH } from '../../constants';
+import {
+  BUTTON_TYPE, START,
+  ITEMS_DISPLAYED,
+} from '../../constants';
 import Button from '../../components/button';
+import Card from '../../components/card';
 
 function Home() {
-  const start = 0;
   const Products = [...useContext(ContextProducts)];
-  const [end, setEnd] = useState(20);
+  const [end, setEnd] = useState(ITEMS_DISPLAYED);
 
   return (
     <ul className={style.wrapper}>
       {
         Products
-          ? Products.slice(start, end).map(({
-            id, brand, imgUrl, model, price,
-          }) => (
-            <li className={style.card} key={id}>
-
-              <img src={imgUrl} alt={model} />
-              <h3>{brand}</h3>
-              <h5>{model}</h5>
-              <p>{price}</p>
-              <Link to={`${PATH.detail}/${id}`}>
-                <Button buttonText={BUTTON_TYPE.detail} />
-              </Link>
+          ? Products.slice(START, end).map((product) => (
+            <li key={product.id}>
+              <Card product={product} />
             </li>
           ))
           : null
@@ -36,7 +29,7 @@ function Home() {
       {
         end >= Products.length
           ? null
-          : <Button handleClick={() => setEnd(end + 20)} buttonText={BUTTON_TYPE.more} />
+          : <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />
 }
     </ul>
   );

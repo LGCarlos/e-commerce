@@ -9,7 +9,12 @@ const PATH = {
   detail: '/detail',
 };
 
+const START = 0;
+const ITEMS_DISPLAYED = 20;
+
 module.exports = {
   BUTTON_TYPE,
   PATH,
+  START,
+  ITEMS_DISPLAYED,
 };

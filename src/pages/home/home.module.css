@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   margin: 0.5rem;
 }
-.card {
-  border: 2px solid black;
+
+li {
+  list-style: none;
 }
