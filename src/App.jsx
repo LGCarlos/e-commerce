@@ -9,7 +9,7 @@ import axios from 'axios';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import Error from './pages/error';
-import Context from './context/StaticContext';
+import { ContextProducts, ContextBasket } from './context/StaticContext';
 import Loader from './components/loader';
 import Header from './components/header';
 import { PATH } from './constants';
@@ -31,6 +31,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     (async () => {
       try {
@@ -45,23 +46,25 @@ function App() {
         getProductList();
       } catch (error) {
         setErrorMessage(error.message);
-        return errorMessage;
       } finally {
         setLoaded(true);
       }
       return { errorMessage, loaded };
     })();
   }, []);
+
   return (
     <div className="App">
-      <Context.Provider value={products}>
-        <Header />
-        {
+      <ContextProducts.Provider value={products}>
+        <ContextBasket.Provider value={0}>
+          <Header />
+          {
           loaded
             ? <RouterProvider router={router} />
             : <Loader />
         }
-      </Context.Provider>
+        </ContextBasket.Provider>
+      </ContextProducts.Provider>
     </div>
   );
 }
