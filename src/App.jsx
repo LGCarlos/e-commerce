@@ -10,6 +10,7 @@ import Home from './pages/home';
 import Detail from './pages/detail';
 import Error from './pages/error';
 import Context from './context/StaticContext';
+import Loader from './components/loader';
 import { PATH } from './constants';
 
 const router = createBrowserRouter([
@@ -54,9 +55,9 @@ function App() {
     <div className="App">
       <Context.Provider value={products}>
         {
-          products.length
+          loaded
             ? <RouterProvider router={router} />
-            : <Error />
+            : <Loader />
         }
       </Context.Provider>
     </div>

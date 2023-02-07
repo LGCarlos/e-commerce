@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 
-export default function Detail() {
+function Detail() {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
 
@@ -19,3 +19,5 @@ export default function Detail() {
     <h1>{product && product.id}</h1>
   );
 }
+
+export default Detail;

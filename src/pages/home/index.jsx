@@ -7,7 +7,7 @@ import ContextProducts from '../../context/StaticContext';
 import style from './home.module.css';
 import { BUTTON_TYPE, PATH } from '../../constants';
 
-export default function Home() {
+function Home() {
   const Products = [...useContext(ContextProducts)];
   return (
     <ul className={style.wrapper}>
@@ -32,3 +32,5 @@ export default function Home() {
     </ul>
   );
 }
+
+export default Home;
