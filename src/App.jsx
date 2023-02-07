@@ -27,16 +27,28 @@ const router = createBrowserRouter([
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    const getProductList = async () => {
-      const url = process.env.REACT_APP_API_URL_PRODUCTS;
-      const { data } = await axios.get(url);
-      setProducts(data);
-      setTimeout(() => {
-        setProducts([]);
-      }, 1000 * 60 * 60);
-    };
-    getProductList();
+    (async () => {
+      try {
+        const getProductList = async () => {
+          const url = process.env.REACT_APP_API_URL_PRODUCTS;
+          const { data } = await axios.get(url);
+          setProducts(data);
+          setTimeout(() => {
+            setProducts([]);
+          }, 1000 * 60 * 60);
+        };
+        getProductList();
+      } catch (error) {
+        setErrorMessage(error.message);
+        return errorMessage;
+      } finally {
+        setLoaded(true);
+      }
+      return { errorMessage, loaded };
+    })();
   }, []);
   return (
     <div className="App">
