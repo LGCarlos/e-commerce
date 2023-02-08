@@ -11,7 +11,6 @@ function Card(props) {
   } = product;
   return (
     <Link to={`${PATH.detail}/${id}`}>
-
       <div className={style.container}>
         <img src={imgUrl} alt={brand} />
         <p>{brand}</p>
