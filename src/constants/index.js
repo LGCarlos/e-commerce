@@ -15,6 +15,17 @@ const SELECT_ID = {
   storages: 'storageCode',
 };
 
+const CRUMBS = [
+  {
+    name: 'Home',
+    path: '/',
+  },
+  {
+    name: 'Detail',
+    path: '/detail',
+  },
+];
+
 const START = 0;
 const ITEMS_DISPLAYED = 20;
 
@@ -35,4 +46,5 @@ module.exports = {
   BASKET_TEXT,
   DESCRIPTION,
   SELECT_ID,
+  CRUMBS,
 };

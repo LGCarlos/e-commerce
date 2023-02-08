@@ -24,6 +24,11 @@ function Home() {
     setNumCards(items.length);
   }, [Products]);
 
+  useEffect(() => {
+    const detailCrumb = document.querySelector('#Detail');
+    detailCrumb.style.visibility = 'hidden';
+  }, []);
+
   return (
     <>
       <SearchBar handleChange={(event) => { setSearchTerm(event.target.value); }} />

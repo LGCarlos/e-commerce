@@ -5,6 +5,7 @@ import { LOGO_TEXT, BASKET_TEXT, PATH } from '../../constants/index';
 import logo from '../../assets/images/logo.png';
 import basketSvg from '../../assets/svg/basket.svg';
 import style from './header.module.css';
+import Breadcrumbs from '../breadcrumbs';
 
 function Header(props) {
   const { basket } = props;
@@ -13,6 +14,7 @@ function Header(props) {
       <Link to={`${PATH.home}`}>
         <img src={logo} alt={LOGO_TEXT} />
       </Link>
+      <Breadcrumbs />
       <div className={style.container__basket}>
         <img src={basketSvg} alt={BASKET_TEXT} />
         {
