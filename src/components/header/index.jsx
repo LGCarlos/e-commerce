@@ -1,18 +1,25 @@
-import React, { useContext } from 'react';
-import { LOGO_TEXT, BASKET_TEXT } from '../../constants/index';
+/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { LOGO_TEXT, BASKET_TEXT, PATH } from '../../constants/index';
 import logo from '../../assets/images/logo.png';
-import basket from '../../assets/svg/basket.svg';
+import basketSvg from '../../assets/svg/basket.svg';
 import style from './header.module.css';
-import { ContextBasket } from '../../context/StaticContext';
 
-function Header() {
-  const Basket = useContext(ContextBasket);
+function Header(props) {
+  const { basket } = props;
   return (
     <div className={style.container}>
-      <img src={logo} alt={LOGO_TEXT} />
+      <Link to={`${PATH.home}`}>
+        <img src={logo} alt={LOGO_TEXT} />
+      </Link>
       <div className={style.container__basket}>
-        <img src={basket} alt={BASKET_TEXT} />
-        <div className={style.basket__number}>{Basket}</div>
+        <img src={basketSvg} alt={BASKET_TEXT} />
+        {
+          basket > 0
+            ? <div className={style.basket__number}>{basket}</div>
+            : null
+        }
       </div>
     </div>
   );
