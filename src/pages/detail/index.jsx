@@ -32,7 +32,19 @@ function Detail() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setBasket(basket + 1);
+    (async () => {
+      try {
+        const addToBasket = async () => {
+          const url = process.env.REACT_APP_API_URL_CART;
+          const { data } = await axios.post(url, form);
+          setBasket(data.count + basket);
+        };
+        addToBasket();
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+      return { errorMessage, basket };
+    })();
   };
 
   useEffect(() => {
