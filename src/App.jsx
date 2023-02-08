@@ -18,7 +18,7 @@ import { PATH } from './constants';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [basket, setBasket] = useState(3);
+  const [basket, setBasket] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -57,7 +57,6 @@ function App() {
                     <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
                   </Routes>
                 </BrowserRouter>
-
               )
               : <Loader />
         }

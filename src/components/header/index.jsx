@@ -15,7 +15,11 @@ function Header(props) {
       </Link>
       <div className={style.container__basket}>
         <img src={basketSvg} alt={BASKET_TEXT} />
-        <div className={style.basket__number}>{basket}</div>
+        {
+          basket > 0
+            ? <div className={style.basket__number}>{basket}</div>
+            : null
+        }
       </div>
     </div>
   );
