@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react';
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route,
 } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
@@ -14,21 +16,9 @@ import Loader from './components/loader';
 import Header from './components/header';
 import { PATH } from './constants';
 
-const router = createBrowserRouter([
-  {
-    path: `${PATH.home}`,
-    element: <Home />,
-    errorElement: <Error />,
-  },
-  {
-    path: `${PATH.detail}/:productId`,
-    element: <Detail />,
-    errorElement: <Error />,
-  },
-]);
-
 function App() {
   const [products, setProducts] = useState([]);
+  const [basket, setBasket] = useState(3);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -56,12 +46,20 @@ function App() {
   return (
     <div className="App">
       <ContextProducts.Provider value={products}>
-        <ContextBasket.Provider value={0}>
-          <Header />
+        <ContextBasket.Provider value={[basket, setBasket]}>
           {
-          loaded
-            ? <RouterProvider router={router} />
-            : <Loader />
+            loaded
+              ? (
+                <BrowserRouter>
+                  <Header basket={basket} />
+                  <Routes>
+                    <Route path={PATH.home} element={<Home />} errorElement={<Error />} />
+                    <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
+                  </Routes>
+                </BrowserRouter>
+
+              )
+              : <Loader />
         }
         </ContextBasket.Provider>
       </ContextProducts.Provider>
