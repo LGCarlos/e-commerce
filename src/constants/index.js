@@ -8,6 +8,7 @@ const BUTTON_TYPE = {
 const PATH = {
   home: '/',
   detail: '/detail',
+  cart: '/cart',
 };
 
 const SELECT_ID = {

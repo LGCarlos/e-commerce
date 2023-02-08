@@ -21,6 +21,7 @@ function Detail() {
   const [optionsStorage, setOptionsStorage] = useState([]);
   const [optionsColor, setOptionsColor] = useState([]);
   const [form, setForm] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleChange = (event) => {
     setForm({
@@ -31,28 +32,49 @@ function Detail() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setBasket(basket + 1);
+    (async () => {
+      try {
+        const addToBasket = async () => {
+          const url = process.env.REACT_APP_API_URL_CART;
+          const { data } = await axios.post(url, form);
+          setBasket(data.count + basket);
+        };
+        addToBasket();
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+      return { errorMessage, basket };
+    })();
   };
 
   useEffect(() => {
     const detailCrumb = document.querySelector('#Detail');
     detailCrumb.style.visibility = 'inherit';
+    detailCrumb.style.pointerEvents = 'none';
+    detailCrumb.style.cursor = 'default';
   }, []);
 
   useEffect(() => {
-    const getProductDetail = async () => {
-      const url = `${process.env.REACT_APP_API_URL_PRODUCTS}/${productId}`;
-      const { data } = await axios.get(url);
-      setProduct(data);
-      setOptionsStorage(data.options.storages || []);
-      setOptionsColor(data.options.colors || []);
-      setForm({
-        id: productId,
-        colorCode: data.options.colors ? data.options.colors[0].code : null,
-        storageCode: data.options.storages ? data.options.storages[0].code : null,
-      });
-    };
-    getProductDetail();
+    (async () => {
+      try {
+        const getProductDetail = async () => {
+          const url = `${process.env.REACT_APP_API_URL_PRODUCTS}/${productId}`;
+          const { data } = await axios.get(url);
+          setProduct(data);
+          setOptionsStorage(data.options.storages || []);
+          setOptionsColor(data.options.colors || []);
+          setForm({
+            id: productId,
+            colorCode: data.options.colors ? data.options.colors[0].code : null,
+            storageCode: data.options.storages ? data.options.storages[0].code : null,
+          });
+        };
+        getProductDetail();
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+      return { errorMessage };
+    })();
   }, []);
 
   return (
