@@ -1,15 +1,19 @@
 import React from 'react';
 
 function Select(props) {
-  const { handleChange, id, value } = props;
+  const {
+    handleChange, id, value, options,
+  } = props;
   return (
     <select
       value={value}
       onChange={handleChange}
       id={id}
     >
-      <option value={1000}>16gb</option>
-      <option value={2000}>32gb</option>
+      {
+         options
+           ? options.map((o) => <option key={o.code} value={o.code}>{o.name}</option>) : null
+        }
     </select>
   );
 }

@@ -10,6 +10,11 @@ const PATH = {
   detail: '/detail',
 };
 
+const SELECT_ID = {
+  colors: 'colorCode',
+  storages: 'storageCode',
+};
+
 const START = 0;
 const ITEMS_DISPLAYED = 20;
 
@@ -29,4 +34,5 @@ module.exports = {
   LOGO_TEXT,
   BASKET_TEXT,
   DESCRIPTION,
+  SELECT_ID,
 };
