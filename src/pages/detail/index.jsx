@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, {
   useEffect, useState, useContext,
@@ -34,6 +33,11 @@ function Detail() {
     event.preventDefault();
     setBasket(basket + 1);
   };
+
+  useEffect(() => {
+    const detailCrumb = document.querySelector('#Detail');
+    detailCrumb.style.visibility = 'inherit';
+  }, []);
 
   useEffect(() => {
     const getProductDetail = async () => {
