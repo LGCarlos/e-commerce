@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../button';
-import { BUTTON_TYPE, PATH } from '../../constants';
+import { PATH } from '../../constants';
+import style from './card.module.css';
 
 function Card(props) {
   const { product } = props;
@@ -10,15 +10,15 @@ function Card(props) {
     imgUrl, brand, model, price, id,
   } = product;
   return (
-    <div>
-      <img src={imgUrl} alt={brand} />
-      <p>{brand}</p>
-      <p>{model}</p>
-      <p>{price}</p>
-      <Link to={`${PATH.detail}/${id}`}>
-        <Button label={BUTTON_TYPE.detail} />
-      </Link>
-    </div>
+    <Link to={`${PATH.detail}/${id}`}>
+
+      <div className={style.container}>
+        <img src={imgUrl} alt={brand} />
+        <p>{brand}</p>
+        <p>{model}</p>
+        <p>{price}</p>
+      </div>
+    </Link>
   );
 }
 

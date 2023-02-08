@@ -30,28 +30,30 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className={style.main}>
       <SearchBar handleChange={(event) => { setSearchTerm(event.target.value); }} />
-      <ul className={style.wrapper}>
-        {Products
-          ? Products
-            .filter((product) => product.model.toLowerCase().includes(searchTerm.toLowerCase())
+      <div className={style.main__container}>
+        <ul className={style.container__products}>
+          {Products
+            ? Products
+              .filter((product) => product.model.toLowerCase().includes(searchTerm.toLowerCase())
             || product.brand.toLowerCase().includes(searchTerm.toLowerCase()))
-            .slice(START, end)
-            .map((product) => (
-              <li key={product.id}>
-                <Card product={product} />
-              </li>
-            ))
-          : null}
+              .slice(START, end)
+              .map((product) => (
+                <li className={style.products__card} key={product.id}>
+                  <Card product={product} />
+                </li>
+              ))
+            : null}
+        </ul>
         {end >= Products.length || numCards < ITEMS_DISPLAYED
           ? null
           : <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />}
         {
           numCards ? null : <p>{NO_RESULTS}</p>
         }
-      </ul>
-    </>
+      </div>
+    </div>
   );
 }
 
