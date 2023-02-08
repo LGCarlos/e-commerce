@@ -14,6 +14,7 @@ import Error from './pages/error';
 import { ContextProducts, ContextBasket } from './context/StaticContext';
 import Loader from './components/loader';
 import Header from './components/header';
+import Footer from './components/footer';
 import { PATH } from './constants';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                     <Route path={PATH.home} element={<Home />} errorElement={<Error />} />
                     <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
                   </Routes>
+                  <Footer />
                 </BrowserRouter>
               )
               : <Loader />
