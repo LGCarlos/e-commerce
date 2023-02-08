@@ -2,6 +2,7 @@ const BUTTON_TYPE = {
   detail: 'Detail',
   more: 'See more',
   back: 'Go back',
+  add: 'Add to cart',
 };
 
 const PATH = {
