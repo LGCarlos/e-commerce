@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useEffect, useState, useContext } from 'react';
+import React, {
+  useEffect, useState, useContext,
+} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -9,15 +11,30 @@ import Description from '../../components/description';
 import style from './detail.module.css';
 import { ContextBasket } from '../../context/StaticContext';
 import Button from '../../components/button';
+import Select from '../../components/select';
 
 function Detail() {
   const { productId } = useParams();
-  const [product, setProduct] = useState({});
   const [basket, setBasket] = useContext(ContextBasket);
+  const [product, setProduct] = useState({});
+  const [form, setForm] = useState({
+    id: productId,
+    colorCode: undefined,
+    storageCode: undefined,
+  });
 
-  // useEffect(() => {
-  //   setBasket(30);
-  // }, []);
+  const handleChange = (event) => {
+    setForm({
+      ...form,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(form);
+    setBasket(basket + 1);
+  };
 
   useEffect(() => {
     const getProductDetail = async () => {
@@ -30,11 +47,6 @@ function Detail() {
 
   return (
     <div>
-      <Button
-        handleClick={() => setBasket(basket + 1)}
-        label={BUTTON_TYPE.add}
-      />
-
       <Link to={`${PATH.home}`}>
         <Button label={BUTTON_TYPE.back} />
       </Link>
@@ -48,6 +60,14 @@ function Detail() {
         </div>
         <div>
           <h1>ACTIONS</h1>
+          <form onSubmit={handleSubmit}>
+            <Select
+              value={form.storageCode}
+              handleChange={handleChange}
+              id="colorCode"
+            />
+            <button type="submit">Add to cart</button>
+          </form>
         </div>
       </div>
 
