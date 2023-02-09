@@ -1,14 +1,10 @@
 .breadcrumbs {
   display: flex;
   justify-content: space-around;
-  width: 17%;
-  margin: -20rem;
+  width: 10%;
+  margin-left: -20rem;
 }
 a {
   text-decoration: none;
   color: black;
-}
-a:hover {
-  text-decoration: inherit;
-  color: grey;
 }

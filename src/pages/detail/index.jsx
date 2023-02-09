@@ -6,17 +6,19 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {
-  DESCRIPTION, PATH, BUTTON_TYPE, SELECT_ID,
+  DESCRIPTION, PATH, BUTTON_TYPE, SELECT_ID, OUT_STOCK,
 } from '../../constants';
 import Description from '../../components/description';
 import style from './detail.module.css';
 import { ContextBasket } from '../../context/StaticContext';
 import Button from '../../components/button';
 import Select from '../../components/select';
+import Loader from '../../components/loader';
 
 function Detail() {
   const { productId } = useParams();
   const [basket, setBasket] = useContext(ContextBasket);
+  const [loaded, setLoaded] = useState(false);
   const [product, setProduct] = useState({});
   const [optionsStorage, setOptionsStorage] = useState([]);
   const [optionsColor, setOptionsColor] = useState([]);
@@ -32,12 +34,14 @@ function Detail() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoaded(false);
     (async () => {
       try {
         const addToBasket = async () => {
           const url = process.env.REACT_APP_API_URL_CART;
           const { data } = await axios.post(url, form);
           setBasket(data.count + basket);
+          setLoaded(true);
         };
         addToBasket();
       } catch (error) {
@@ -72,6 +76,8 @@ function Detail() {
         getProductDetail();
       } catch (error) {
         setErrorMessage(error.message);
+      } finally {
+        setLoaded(true);
       }
       return { errorMessage };
     })();
@@ -79,40 +85,47 @@ function Detail() {
 
   return (
     <div>
-      <Link to={`${PATH.home}`}>
-        <Button label={BUTTON_TYPE.back} />
-      </Link>
-      <div>
-        <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
-      </div>
-      <div>
-        <div>
-          <h1>{DESCRIPTION}</h1>
-          <Description data={product} />
-        </div>
-        <div>
-          { product
-            ? (
-              <form onSubmit={handleSubmit}>
-                <Select
-                  value={form.storageCode}
-                  handleChange={handleChange}
-                  id={SELECT_ID.storages}
-                  options={optionsStorage}
-                />
-                <Select
-                  value={form.colorCode}
-                  handleChange={handleChange}
-                  id={SELECT_ID.colors}
-                  options={optionsColor}
-                />
-                <button type="submit">{BUTTON_TYPE.add}</button>
-              </form>
-            )
-            : null}
-        </div>
-      </div>
-
+      {
+      loaded
+        ? (
+          <div>
+            <Link to={`${PATH.home}`}>
+              <Button label={BUTTON_TYPE.back} />
+            </Link>
+            <div>
+              <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
+            </div>
+            <div>
+              <div>
+                <h1>{DESCRIPTION}</h1>
+                <Description data={product} />
+              </div>
+              <div>
+                {product && product.price
+                  ? (
+                    <form onSubmit={handleSubmit}>
+                      <Select
+                        value={form.storageCode}
+                        handleChange={handleChange}
+                        id={SELECT_ID.storages}
+                        options={optionsStorage}
+                      />
+                      <Select
+                        value={form.colorCode}
+                        handleChange={handleChange}
+                        id={SELECT_ID.colors}
+                        options={optionsColor}
+                      />
+                      <button type="submit">{BUTTON_TYPE.add}</button>
+                    </form>
+                  )
+                  : (<p>{OUT_STOCK}</p>)}
+              </div>
+            </div>
+          </div>
+        )
+        : <Loader />
+            }
     </div>
   );
 }

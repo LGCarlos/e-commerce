@@ -1,4 +1,5 @@
 import React from 'react';
+import { NOT_AVAILABLE } from '../../constants';
 
 function Description(props) {
   const isArray = (constant) => {
@@ -49,7 +50,12 @@ function Description(props) {
              <li value={el} key={el}>
                {el}
                :
-               {featuresObj[el]}
+               {' '}
+               {
+                featuresObj[el]
+                  ? `${featuresObj[el]}€`
+                  : NOT_AVAILABLE
+               }
              </li>
            ))
         }

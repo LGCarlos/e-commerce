@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PATH } from '../../constants';
+import { PATH, SOLDOUT } from '../../constants';
 import style from './card.module.css';
 
 function Card(props) {
@@ -13,9 +13,18 @@ function Card(props) {
     <Link to={`${PATH.detail}/${id}`}>
       <div className={style.container}>
         <img src={imgUrl} alt={brand} />
-        <p>{brand}</p>
+        <p className={style.container__brand}>{brand}</p>
         <p>{model}</p>
-        <p>{price}</p>
+        { price
+          ? (
+            <p className={style.container__price}>
+              {`${price}€`}
+            </p>
+          ) : (
+            <p className={`${style.container__price} ${style.soldout}`}>
+              {SOLDOUT}
+            </p>
+          )}
       </div>
     </Link>
   );

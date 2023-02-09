@@ -34,9 +34,13 @@ const PLACEHOLDER = 'Find a product...';
 const NO_RESULTS = 'Not matched results';
 const LOGO_TEXT = 'Company logo';
 const BASKET_TEXT = 'Basket image';
+const LENS_TEXT = 'Lens image';
 const GITHUB_TEXT = 'Github icon';
 const LINKEDIN_TEXT = 'Linkedin icon';
 const DESCRIPTION = 'Description';
+const SOLDOUT = 'Sold out';
+const NOT_AVAILABLE = 'Not available';
+const OUT_STOCK = 'Out of stock';
 
 const FOOTER_DESCRIPTION = 'e-Commerce Powered by LGCarlos';
 const GITHUB = 'https://github.com/LGCarlos/';
@@ -59,4 +63,8 @@ module.exports = {
   FOOTER_DESCRIPTION,
   GITHUB,
   LINKEDIN,
+  SOLDOUT,
+  NOT_AVAILABLE,
+  OUT_STOCK,
+  LENS_TEXT,
 };
