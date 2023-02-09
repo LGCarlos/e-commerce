@@ -5,6 +5,10 @@
   width: 100vw;
   padding: 1.2rem 3rem;
   border-bottom: 2px solid #ebebeb;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 9999;
 }
 .container__basket {
   display: flex;
