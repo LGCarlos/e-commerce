@@ -1,5 +1,5 @@
 .main {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 h1 {
@@ -44,6 +44,7 @@ form {
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 1rem;
+  transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .form__button__disabled {
@@ -54,7 +55,7 @@ form {
   cursor: pointer;
   border-color: #3a3a3a;
   color: #3a3a3a;
-  background: none;
+  box-shadow: inset 30rem 0 0 0 white;
 }
 
 /*Keyframes*/

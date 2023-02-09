@@ -12,11 +12,11 @@ function Header(props) {
   return (
     <div className={style.container}>
       <Link to={`${PATH.home}`}>
-        <img src={logo} alt={LOGO_TEXT} />
+        <img className={style.container__img} src={logo} alt={LOGO_TEXT} />
       </Link>
       <Breadcrumbs />
       <div className={style.container__basket}>
-        <img src={basketSvg} alt={BASKET_TEXT} />
+        <img className={style.container__img} src={basketSvg} alt={BASKET_TEXT} />
         {
           basket > 0
             ? <div className={style.basket__number}>{basket}</div>
