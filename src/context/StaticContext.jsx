@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const ContextProducts = createContext();
-
-export default ContextProducts;
+export const ContextProducts = createContext();
+export const ContextSession = createContext();
+export const ContextBasket = createContext(0);

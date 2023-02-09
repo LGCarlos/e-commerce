@@ -1,0 +1,14 @@
+.main__container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 6rem;
+}
+
+.main__container img {
+  width: 20rem;
+  margin-bottom: 2rem;
+}

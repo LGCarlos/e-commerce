@@ -1,3 +1,44 @@
+# E-commerce app
+
+# IMPORTANT
+
+- Create .env file (there is an example '.env.example') and add endpoints' url.
+
+
+# Invoices App
+
+- This is a cool App that I have really enjoyed.
+
+### How to clone the repository
+
+bash
+https://github.com/LGCarlos/e-commerce
+cd e-commerce
+
+## Install Frontend Dependencies
+
+bash
+#Using npm
+npm install
+
+
+## Run it live
+
+bash
+#Build dev
+npm start
+
+#Build for Production
+npm run build or yarn build
+
+
+## Frontend Tools. ⚒️
+
+- HTML5.
+- CSS Modules.
+- Javascript.
+- ReactJs(Framework).
+- Git and Github.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
