@@ -22,7 +22,7 @@ function App() {
   const [basket, setBasket] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [session, setSession] = useState(false);
+  const [session, setSession] = useState();
 
   useEffect(() => {
     (async () => {
@@ -31,7 +31,6 @@ function App() {
           const url = process.env.REACT_APP_API_URL_PRODUCTS;
           const { data } = await axios.get(url);
           setProducts(data);
-          setSession(true);
           setTimeout(() => {
             setProducts([]);
             setSession(false);
@@ -40,8 +39,10 @@ function App() {
         getProductList();
       } catch (error) {
         setErrorMessage(error.message);
+        setSession(false);
       } finally {
         setLoaded(true);
+        setSession(true);
       }
       return { errorMessage, loaded };
     })();
