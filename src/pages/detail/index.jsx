@@ -52,6 +52,10 @@ function Detail() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const detailCrumb = document.querySelector('#Detail');
     detailCrumb.style.visibility = 'inherit';
     detailCrumb.style.pointerEvents = 'none';
