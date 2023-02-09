@@ -1,4 +1,6 @@
 import React from 'react';
+import { NOT_AVAILABLE, PRICE, CURRENCY } from '../../constants';
+import style from './description.module.css';
 
 function Description(props) {
   const isArray = (constant) => {
@@ -46,10 +48,15 @@ function Description(props) {
     <ul>
       {
            features.map((el) => (
-             <li value={el} key={el}>
-               {el}
+             <li className={style.feature} value={el} key={el}>
+               <p className={style.feature__title}>{el}</p>
                :
-               {featuresObj[el]}
+               {' '}
+               {
+                featuresObj[el]
+                  ? `${featuresObj[el]}${el === PRICE ? CURRENCY.euro : ''}`
+                  : NOT_AVAILABLE
+               }
              </li>
            ))
         }

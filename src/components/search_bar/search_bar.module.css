@@ -1,0 +1,35 @@
+.input__icons img {
+  position: absolute;
+  width: 3rem;
+}
+
+.input__icons {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  padding: 13px;
+  min-width: 47px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+input {
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 12px 19px;
+  width: 30%;
+  margin-bottom: 2rem;
+}
+
+input::placeholder {
+  font-size: 0.8rem;
+  text-align: start;
+}

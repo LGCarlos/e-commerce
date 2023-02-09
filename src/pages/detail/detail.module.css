@@ -1,3 +1,72 @@
+.main {
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+form {
+  margin-top: 5rem;
+}
+
+.main__container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 8rem;
+  animation: card 2s ease 0s 1 normal forwards;
+}
+
 .imgage__product {
-  width: 10rem;
+  width: 14rem;
+}
+
+.container__description {
+  min-width: 35%;
+}
+
+.form__selects {
+  width: 100%;
+  display: flex;
+}
+
+.form__button,
+.form__button__disabled {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1.2rem;
+  background: rgb(84, 180, 225);
+  color: white;
+  border: initial;
+  border: 1px solid white;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  transition: color 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form__button__disabled {
+  background-color: #3a3a3a;
+}
+
+.form__button:hover {
+  cursor: pointer;
+  border: 1px solid #3a3a3a;
+  color: #3a3a3a;
+  box-shadow: inset 30rem 0 0 0 white;
+}
+
+/*Keyframes*/
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

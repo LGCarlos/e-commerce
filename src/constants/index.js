@@ -16,6 +16,11 @@ const SELECT_ID = {
   storages: 'storageCode',
 };
 
+const SELECT_LABEL = {
+  colors: 'Color',
+  storages: 'Storage',
+};
+
 const CRUMBS = [
   {
     name: 'Home',
@@ -27,6 +32,10 @@ const CRUMBS = [
   },
 ];
 
+const CURRENCY = {
+  euro: '€',
+};
+
 const START = 0;
 const ITEMS_DISPLAYED = 20;
 
@@ -34,9 +43,17 @@ const PLACEHOLDER = 'Find a product...';
 const NO_RESULTS = 'Not matched results';
 const LOGO_TEXT = 'Company logo';
 const BASKET_TEXT = 'Basket image';
+const LENS_TEXT = 'Lens image';
 const GITHUB_TEXT = 'Github icon';
 const LINKEDIN_TEXT = 'Linkedin icon';
+const ERROR_ICON = 'Error icon';
+const ERROR_TEXT = 'Sorry, It seems that something went wrong. Please reload page';
 const DESCRIPTION = 'Description';
+const SOLDOUT = 'Sold out';
+const NOT_AVAILABLE = 'Not available';
+const OUT_STOCK = 'Out of stock';
+const PRICE = 'price';
+const GO_TOP = 'Go to top';
 
 const FOOTER_DESCRIPTION = 'e-Commerce Powered by LGCarlos';
 const GITHUB = 'https://github.com/LGCarlos/';
@@ -59,4 +76,14 @@ module.exports = {
   FOOTER_DESCRIPTION,
   GITHUB,
   LINKEDIN,
+  SOLDOUT,
+  NOT_AVAILABLE,
+  OUT_STOCK,
+  LENS_TEXT,
+  PRICE,
+  CURRENCY,
+  SELECT_LABEL,
+  GO_TOP,
+  ERROR_ICON,
+  ERROR_TEXT,
 };

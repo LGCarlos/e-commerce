@@ -8,16 +8,23 @@ import {
   BUTTON_TYPE, START,
   ITEMS_DISPLAYED,
   NO_RESULTS,
+  GO_TOP,
 } from '../../constants';
 import Button from '../../components/button';
 import Card from '../../components/card';
 import SearchBar from '../../components/search_bar';
+import noResultsSvg from '../../assets/svg/noresults.svg';
+import topSvg from '../../assets/svg/top.svg';
 
 function Home() {
   const Products = [...useContext(ContextProducts)];
   const [end, setEnd] = useState(ITEMS_DISPLAYED);
   const [searchTerm, setSearchTerm] = useState('');
   const [numCards, setNumCards] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const items = document.getElementsByTagName('li');
@@ -30,28 +37,40 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className={style.main} id="top">
       <SearchBar handleChange={(event) => { setSearchTerm(event.target.value); }} />
-      <ul className={style.wrapper}>
-        {Products
-          ? Products
-            .filter((product) => product.model.toLowerCase().includes(searchTerm.toLowerCase())
+      <div className={style.main__container}>
+        <ul className={style.container__products}>
+          {Products
+            ? Products
+              .filter((product) => product.model.toLowerCase().includes(searchTerm.toLowerCase())
             || product.brand.toLowerCase().includes(searchTerm.toLowerCase()))
-            .slice(START, end)
-            .map((product) => (
-              <li key={product.id}>
-                <Card product={product} />
-              </li>
-            ))
-          : null}
+              .slice(START, end)
+              .map((product) => (
+                <li className={style.products__card} key={product.id}>
+                  <Card product={product} />
+                </li>
+              ))
+            : null}
+        </ul>
         {end >= Products.length || numCards < ITEMS_DISPLAYED
           ? null
-          : <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />}
+          : (
+            <div className={style.container__buttons}>
+              <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />
+              <a href="#top"><img src={topSvg} alt={GO_TOP} /></a>
+            </div>
+          )}
         {
-          numCards ? null : <p>{NO_RESULTS}</p>
+          numCards ? null : (
+            <>
+              <img src={noResultsSvg} alt={NO_RESULTS} className={style.noresults__img} />
+              <h3>{NO_RESULTS}</h3>
+            </>
+          )
         }
-      </ul>
-    </>
+      </div>
+    </div>
   );
 }
 

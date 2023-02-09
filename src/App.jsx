@@ -11,7 +11,7 @@ import axios from 'axios';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import Error from './pages/error';
-import { ContextProducts, ContextBasket } from './context/StaticContext';
+import { ContextProducts, ContextBasket, ContextSession } from './context/StaticContext';
 import Loader from './components/loader';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -22,6 +22,7 @@ function App() {
   const [basket, setBasket] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [session, setSession] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -30,8 +31,10 @@ function App() {
           const url = process.env.REACT_APP_API_URL_PRODUCTS;
           const { data } = await axios.get(url);
           setProducts(data);
+          setSession(true);
           setTimeout(() => {
             setProducts([]);
+            setSession(false);
           }, 1000 * 60 * 60);
         };
         getProductList();
@@ -48,20 +51,26 @@ function App() {
     <div className="App">
       <ContextProducts.Provider value={products}>
         <ContextBasket.Provider value={[basket, setBasket]}>
-          {
+          <ContextSession.Provider value={session}>
+            {
             loaded
               ? (
                 <BrowserRouter>
                   <Header basket={basket} />
-                  <Routes>
-                    <Route path={PATH.home} element={<Home />} errorElement={<Error />} />
-                    <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
-                  </Routes>
+                  { session
+                    ? (
+                      <Routes>
+                        <Route path={PATH.home} element={<Home />} errorElement={<Error />} />
+                        <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
+                      </Routes>
+                    )
+                    : <Error />}
                   <Footer />
                 </BrowserRouter>
               )
               : <Loader />
         }
+          </ContextSession.Provider>
         </ContextBasket.Provider>
       </ContextProducts.Provider>
     </div>

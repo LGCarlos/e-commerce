@@ -1,9 +1,10 @@
 import React from 'react';
+import style from './button.module.css';
 
 function Button(props) {
   const { handleClick, label } = props;
   return (
-    <button type="button" onClick={handleClick}>{label}</button>
+    <button className={style.primary} type="button" onClick={handleClick}>{label}</button>
   );
 }
 

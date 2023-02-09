@@ -1,11 +1,43 @@
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 0.5rem;
+.main {
+  padding: 2rem;
+  margin-top: 6rem;
 }
 
 li {
   list-style: none;
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+.container__products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products__card {
+  flex: 1 0 21%;
+  margin: 5px;
+  animation: entrance 7s ease 0s 1 normal forwards;
+}
+
+.noresults__img {
+  width: 8rem;
+  margin-bottom: 2rem;
+}
+
+.container__buttons {
+  display: flex;
+  align-items: center;
+}
+.container__buttons a {
+  margin-left: 2rem;
+}
+.container__buttons a img {
+  width: 3rem;
 }
