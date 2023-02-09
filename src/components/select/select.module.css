@@ -12,3 +12,13 @@ select {
   height: 3rem;
   cursor: pointer;
 }
+
+/**
+Media.queries
+*/
+/*Mobiles*/
+@media (max-width: 720px) {
+  select {
+    margin: 0 0.3rem;
+  }
+}
