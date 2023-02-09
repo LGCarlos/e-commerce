@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {
-  DESCRIPTION, PATH, BUTTON_TYPE, SELECT_ID, OUT_STOCK,
+  DESCRIPTION, PATH, BUTTON_TYPE, SELECT_ID, OUT_STOCK, SELECT_LABEL,
 } from '../../constants';
 import Description from '../../components/description';
 import style from './detail.module.css';
@@ -88,38 +88,44 @@ function Detail() {
       {
       loaded
         ? (
-          <div>
+          <div className={style.main}>
             <Link to={`${PATH.home}`}>
               <Button label={BUTTON_TYPE.back} />
             </Link>
-            <div>
-              <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
-            </div>
-            <div>
+            <div className={style.main__container}>
               <div>
-                <h1>{DESCRIPTION}</h1>
-                <Description data={product} />
+                <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
               </div>
               <div>
-                {product && product.price
-                  ? (
-                    <form onSubmit={handleSubmit}>
-                      <Select
-                        value={form.storageCode}
-                        handleChange={handleChange}
-                        id={SELECT_ID.storages}
-                        options={optionsStorage}
-                      />
-                      <Select
-                        value={form.colorCode}
-                        handleChange={handleChange}
-                        id={SELECT_ID.colors}
-                        options={optionsColor}
-                      />
-                      <button type="submit">{BUTTON_TYPE.add}</button>
-                    </form>
-                  )
-                  : (<p>{OUT_STOCK}</p>)}
+                <div>
+                  <h1>{DESCRIPTION}</h1>
+                  <Description data={product} />
+                </div>
+                <div>
+                  {product && product.price
+                    ? (
+                      <form onSubmit={handleSubmit}>
+                        <div className={style.form__selects}>
+                          <Select
+                            value={form.storageCode}
+                            handleChange={handleChange}
+                            id={SELECT_ID.storages}
+                            options={optionsStorage}
+                            label={SELECT_LABEL.storages}
+                          />
+                          <Select
+                            value={form.colorCode}
+                            handleChange={handleChange}
+                            id={SELECT_ID.colors}
+                            options={optionsColor}
+                            label={SELECT_LABEL.colors}
+                          />
+                        </div>
+                        <button className={style.form__button} type="submit">{BUTTON_TYPE.add}</button>
+                      </form>
+                    )
+                    : (<p>{OUT_STOCK}</p>)}
+                </div>
               </div>
             </div>
           </div>

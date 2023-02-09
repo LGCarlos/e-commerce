@@ -1,0 +1,8 @@
+.feature {
+  display: flex;
+  width: fit-content;
+}
+.feature__title {
+  text-transform: capitalize;
+  font-weight: 700;
+}

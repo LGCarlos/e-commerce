@@ -1,3 +1,48 @@
+.main {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+form {
+  margin-top: 5rem;
+}
+
+.main__container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 8rem;
+}
+
 .imgage__product {
-  width: 10rem;
+  width: 14rem;
+}
+
+.form__selects {
+  width: 100%;
+  display: flex;
+}
+
+.form__button {
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1.2rem;
+  background: rgb(84, 180, 225);
+  color: white;
+  border: initial;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.form__button:hover {
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  background: none;
 }

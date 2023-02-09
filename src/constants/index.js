@@ -16,6 +16,11 @@ const SELECT_ID = {
   storages: 'storageCode',
 };
 
+const SELECT_LABEL = {
+  colors: 'Color',
+  storages: 'Storage',
+};
+
 const CRUMBS = [
   {
     name: 'Home',
@@ -26,6 +31,10 @@ const CRUMBS = [
     path: '/detail',
   },
 ];
+
+const CURRENCY = {
+  euro: '€',
+};
 
 const START = 0;
 const ITEMS_DISPLAYED = 20;
@@ -41,6 +50,7 @@ const DESCRIPTION = 'Description';
 const SOLDOUT = 'Sold out';
 const NOT_AVAILABLE = 'Not available';
 const OUT_STOCK = 'Out of stock';
+const PRICE = 'price';
 
 const FOOTER_DESCRIPTION = 'e-Commerce Powered by LGCarlos';
 const GITHUB = 'https://github.com/LGCarlos/';
@@ -67,4 +77,7 @@ module.exports = {
   NOT_AVAILABLE,
   OUT_STOCK,
   LENS_TEXT,
+  PRICE,
+  CURRENCY,
+  SELECT_LABEL,
 };
