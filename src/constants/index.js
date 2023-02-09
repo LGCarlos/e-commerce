@@ -46,6 +46,8 @@ const BASKET_TEXT = 'Basket image';
 const LENS_TEXT = 'Lens image';
 const GITHUB_TEXT = 'Github icon';
 const LINKEDIN_TEXT = 'Linkedin icon';
+const ERROR_ICON = 'Error icon';
+const ERROR_TEXT = 'Sorry, It seems that something went wrong. Please reload page';
 const DESCRIPTION = 'Description';
 const SOLDOUT = 'Sold out';
 const NOT_AVAILABLE = 'Not available';
@@ -82,4 +84,6 @@ module.exports = {
   CURRENCY,
   SELECT_LABEL,
   GO_TOP,
+  ERROR_ICON,
+  ERROR_TEXT,
 };

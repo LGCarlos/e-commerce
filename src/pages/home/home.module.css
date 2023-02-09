@@ -37,3 +37,6 @@ li {
 .container__buttons a {
   margin-left: 2rem;
 }
+.container__buttons a img {
+  width: 3rem;
+}

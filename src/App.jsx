@@ -55,6 +55,7 @@ function App() {
                   <Header basket={basket} />
                   <Routes>
                     <Route path={PATH.home} element={<Home />} errorElement={<Error />} />
+                    <Route path="/error" element={<Error />} errorElement={<Error />} />
                     <Route path={`${PATH.detail}/:productId`} element={<Detail />} errorElement={<Error />} />
                   </Routes>
                   <Footer />

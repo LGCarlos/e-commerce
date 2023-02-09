@@ -39,12 +39,12 @@ form {
   background: rgb(84, 180, 225);
   color: white;
   border: initial;
+  border: 1px solid white;
   border-radius: 8px;
-  border: 1px solid #3a3a3a;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 1rem;
-  transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .form__button__disabled {
@@ -53,7 +53,7 @@ form {
 
 .form__button:hover {
   cursor: pointer;
-  border-color: #3a3a3a;
+  border: 1px solid #3a3a3a;
   color: #3a3a3a;
   box-shadow: inset 30rem 0 0 0 white;
 }
