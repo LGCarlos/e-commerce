@@ -8,11 +8,13 @@ import {
   BUTTON_TYPE, START,
   ITEMS_DISPLAYED,
   NO_RESULTS,
+  GO_TOP,
 } from '../../constants';
 import Button from '../../components/button';
 import Card from '../../components/card';
 import SearchBar from '../../components/search_bar';
 import noResultsSvg from '../../assets/svg/noresults.svg';
+import topSvg from '../../assets/svg/top.svg';
 
 function Home() {
   const Products = [...useContext(ContextProducts)];
@@ -35,7 +37,7 @@ function Home() {
   }, []);
 
   return (
-    <div className={style.main}>
+    <div className={style.main} id="top">
       <SearchBar handleChange={(event) => { setSearchTerm(event.target.value); }} />
       <div className={style.main__container}>
         <ul className={style.container__products}>
@@ -53,7 +55,12 @@ function Home() {
         </ul>
         {end >= Products.length || numCards < ITEMS_DISPLAYED
           ? null
-          : <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />}
+          : (
+            <div className={style.container__buttons}>
+              <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />
+              <a href="#top"><img src={topSvg} alt={GO_TOP} /></a>
+            </div>
+          )}
         {
           numCards ? null : (
             <>

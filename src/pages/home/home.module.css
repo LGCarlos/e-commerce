@@ -2,6 +2,10 @@
   padding: 2rem;
 }
 
+li {
+  list-style: none;
+}
+
 .main__container {
   display: flex;
   flex-direction: column;
@@ -21,11 +25,15 @@
   animation: entrance 7s ease 0s 1 normal forwards;
 }
 
-li {
-  list-style: none;
-}
-
 .noresults__img {
   width: 8rem;
   margin-bottom: 2rem;
+}
+
+.container__buttons {
+  display: flex;
+  align-items: center;
+}
+.container__buttons a {
+  margin-left: 2rem;
 }

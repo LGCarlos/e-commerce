@@ -51,6 +51,7 @@ const SOLDOUT = 'Sold out';
 const NOT_AVAILABLE = 'Not available';
 const OUT_STOCK = 'Out of stock';
 const PRICE = 'price';
+const GO_TOP = 'Go to top';
 
 const FOOTER_DESCRIPTION = 'e-Commerce Powered by LGCarlos';
 const GITHUB = 'https://github.com/LGCarlos/';
@@ -80,4 +81,5 @@ module.exports = {
   PRICE,
   CURRENCY,
   SELECT_LABEL,
+  GO_TOP,
 };
