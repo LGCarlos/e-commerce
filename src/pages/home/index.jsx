@@ -12,6 +12,7 @@ import {
 import Button from '../../components/button';
 import Card from '../../components/card';
 import SearchBar from '../../components/search_bar';
+import noResultsSvg from '../../assets/svg/noresults.svg';
 
 function Home() {
   const Products = [...useContext(ContextProducts)];
@@ -50,7 +51,12 @@ function Home() {
           ? null
           : <Button handleClick={() => setEnd(end + ITEMS_DISPLAYED)} label={BUTTON_TYPE.more} />}
         {
-          numCards ? null : <p>{NO_RESULTS}</p>
+          numCards ? null : (
+            <>
+              <img src={noResultsSvg} alt={NO_RESULTS} className={style.noresults__img} />
+              <h3>{NO_RESULTS}</h3>
+            </>
+          )
         }
       </div>
     </div>

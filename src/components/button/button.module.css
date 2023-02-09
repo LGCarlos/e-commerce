@@ -1,0 +1,13 @@
+.primary {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1.2rem;
+  background: none;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.primary:hover {
+  background-color: rgb(82, 180, 225);
+  color: white;
+}

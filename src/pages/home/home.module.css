@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 30vh;
 }
 
 .container__products {
@@ -22,4 +23,9 @@
 
 li {
   list-style: none;
+}
+
+.noresults__img {
+  width: 8rem;
+  margin-bottom: 2rem;
 }
