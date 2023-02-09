@@ -96,7 +96,7 @@ function Detail() {
               <div>
                 <img className={style.imgage__product} src={product.imgUrl} alt={product.brand} />
               </div>
-              <div>
+              <div className={style.container__description}>
                 <div>
                   <h1>{DESCRIPTION}</h1>
                   <Description data={product} />
@@ -124,7 +124,7 @@ function Detail() {
                         <button className={style.form__button} type="submit">{BUTTON_TYPE.add}</button>
                       </form>
                     )
-                    : (<p>{OUT_STOCK}</p>)}
+                    : (<button className={style.form__button__disabled} type="submit" disabled>{OUT_STOCK}</button>)}
                 </div>
               </div>
             </div>

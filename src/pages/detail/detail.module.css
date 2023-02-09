@@ -15,10 +15,15 @@ form {
   display: flex;
   justify-content: space-around;
   margin: 2rem 8rem;
+  animation: card 2s ease 0s 1 normal forwards;
 }
 
 .imgage__product {
   width: 14rem;
+}
+
+.container__description {
+  min-width: 35%;
 }
 
 .form__selects {
@@ -26,9 +31,9 @@ form {
   display: flex;
 }
 
-.form__button {
+.form__button,
+.form__button__disabled {
   width: 100%;
-  cursor: pointer;
   font-size: 1rem;
   padding: 1.2rem;
   background: rgb(84, 180, 225);
@@ -41,8 +46,26 @@ form {
   margin-top: 1rem;
 }
 
+.form__button__disabled {
+  background-color: #3a3a3a;
+}
+
 .form__button:hover {
+  cursor: pointer;
   border-color: #3a3a3a;
   color: #3a3a3a;
   background: none;
+}
+
+/*Keyframes*/
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
