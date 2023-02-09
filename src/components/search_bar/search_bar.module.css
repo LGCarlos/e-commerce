@@ -33,3 +33,13 @@ input::placeholder {
   font-size: 0.8rem;
   text-align: start;
 }
+
+/**
+Media.queries
+*/
+/*Mobiles*/
+@media (max-width: 720px) {
+  input {
+    width: 75%;
+  }
+}

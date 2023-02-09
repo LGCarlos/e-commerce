@@ -14,7 +14,7 @@ function Card(props) {
       <div className={style.container}>
         <img src={imgUrl} alt={brand} />
         <p className={style.container__brand}>{brand}</p>
-        <p>{model}</p>
+        <p className={style.container__model}>{model}</p>
         { price
           ? (
             <p className={style.container__price}>

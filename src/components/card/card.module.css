@@ -53,3 +53,24 @@
     opacity: 1;
   }
 }
+
+/**
+Media.queries
+*/
+/*Tablets*/
+@media (max-width: 1024px) {
+  .container {
+    min-height: 13rem;
+    width: 18vw;
+  }
+  .container img {
+    width: 5rem;
+  }
+  .container__brand,
+  .container__price {
+    font-size: 0.7rem;
+  }
+  .container__model {
+    font-size: 0.5rem;
+  }
+}

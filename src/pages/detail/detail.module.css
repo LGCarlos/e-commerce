@@ -17,6 +17,7 @@ form {
   justify-content: space-around;
   margin: 2rem 8rem;
   animation: card 2s ease 0s 1 normal forwards;
+  min-height: 72vh;
 }
 
 .imgage__product {
@@ -69,5 +70,32 @@ form {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/**
+Media.queries
+*/
+/*Mobiles*/
+@media (max-width: 720px) {
+  .main__container {
+    flex-wrap: wrap;
+  }
+  .container__description {
+    min-width: initial;
+    margin-top: 2rem;
+  }
+  .container__description h1 {
+    text-align: center;
+  }
+}
+
+/*Tablets*/
+@media (max-width: 1024px) {
+  .main__container {
+    margin: 2rem 4rem;
+  }
+  .imgage__product {
+    margin-right: 3rem;
   }
 }
