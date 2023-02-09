@@ -1,5 +1,7 @@
 import React from 'react';
-import { NOT_AVAILABLE, PRICE, CURRENCY } from '../../constants';
+import {
+  NOT_AVAILABLE, PRICE, CURRENCY, DESCRIPTION_OBJ,
+} from '../../constants';
 import style from './description.module.css';
 
 function Description(props) {
@@ -49,7 +51,7 @@ function Description(props) {
       {
            features.map((el) => (
              <li className={style.feature} value={el} key={el}>
-               <p className={style.feature__title}>{el}</p>
+               <p className={style.feature__title}>{DESCRIPTION_OBJ[el]}</p>
                :
                {' '}
                {

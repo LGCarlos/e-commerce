@@ -36,6 +36,21 @@ const CURRENCY = {
   euro: '€',
 };
 
+const DESCRIPTION_OBJ = {
+  brand: 'Brand',
+  model: 'model',
+  price: 'price',
+  cpu: 'cpu',
+  ram: 'ram',
+  os: 'operative system',
+  displayResolution: 'display resolution',
+  battery: 'battery',
+  weight: 'weight',
+  dimentions: 'dimentions',
+  primaryCamera: 'principal camera',
+  secondaryCmera: 'secondary camera',
+};
+
 const START = 0;
 const ITEMS_DISPLAYED = 20;
 
@@ -86,4 +101,5 @@ module.exports = {
   GO_TOP,
   ERROR_ICON,
   ERROR_TEXT,
+  DESCRIPTION_OBJ,
 };
