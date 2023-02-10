@@ -10,9 +10,6 @@
 
 - This is a cool App that I have really enjoyed.
 
-<img src="https://trello.com/1/cards/60be303e6bde423dfda9c42d/attachments/63e5e63a3e70ed25bcd01b82/download/e-commerce.png" alt="home-page" style="height: 100px; width:100px;" />
-<img src="https://trello.com/1/cards/60be303e6bde423dfda9c42d/attachments/63e5e63c85251f255eb97ad5/previews/63e5e63d85251f255eb97e15/download/e-commerce-2.png" alt="detail-page" style="height: 100px; width:100px;" />
-
 ### How to clone the repository
 
 bash
