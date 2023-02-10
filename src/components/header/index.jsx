@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LOGO_TEXT, BASKET_TEXT, PATH } from '../../constants/index';

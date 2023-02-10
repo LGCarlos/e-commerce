@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, {
   useContext, useEffect, useState,
 } from 'react';
@@ -44,7 +43,7 @@ function Home() {
 
   return (
     <div className={style.main} id="top">
-      <SearchBar handleChange={(event) => { setSearchTerm(event.target.value); }} />
+      <SearchBar data-testid="search-bar" handleChange={(event) => { setSearchTerm(event.target.value); }} />
       <div className={style.main__container}>
         <ul className={style.container__products}>
           {Products
