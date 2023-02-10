@@ -2,9 +2,11 @@ import React from 'react';
 import style from './select.module.css';
 
 function Select(props) {
+  /* Props */
   const {
     handleChange, id, value, options, label,
   } = props;
+
   return (
     <div className={style.main}>
       <h3>{label}</h3>

@@ -5,6 +5,7 @@ import lensSvg from '../../assets/svg/lens.svg';
 import style from './search_bar.module.css';
 
 function SearchBar(props) {
+  /* Props */
   const { handleChange } = props;
   return (
     <div className={style.input__icons}>

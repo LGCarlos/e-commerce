@@ -8,6 +8,7 @@ import style from './header.module.css';
 import Breadcrumbs from '../breadcrumbs';
 
 function Header(props) {
+  /* Props */
   const { basket } = props;
   return (
     <div className={style.container}>

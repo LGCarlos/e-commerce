@@ -5,6 +5,9 @@ import {
 import style from './description.module.css';
 
 function Description(props) {
+  /* Props */
+  const { data } = props;
+  /* Check if value of the argument is an array (Some values have array, other have a string ) */
   const isArray = (constant) => {
     switch (typeof constant) {
       case 'object':
@@ -13,7 +16,7 @@ function Description(props) {
         return false;
     }
   };
-  const { data } = props;
+  /* Destructuring properties of the product */
   const {
     brand,
     model,
@@ -29,6 +32,7 @@ function Description(props) {
     secondaryCmera,
   } = data;
 
+  /* Create an object with the properties previously destructured */
   const featuresObj = {
     brand,
     model,
@@ -44,6 +48,7 @@ function Description(props) {
     secondaryCmera: isArray(secondaryCmera) ? secondaryCmera.join(' / ') : secondaryCmera,
   };
 
+  /* Create an array with the keys of the object that we've created previously */
   const features = [...Object.keys(featuresObj)];
 
   return (

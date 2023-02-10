@@ -16,8 +16,12 @@ import Select from '../../components/select';
 import Loader from '../../components/loader';
 
 function Detail() {
+  /* Hooks */
+  /* Param url */
   const { productId } = useParams();
+  /* Context */
   const [basket, setBasket] = useContext(ContextBasket);
+  /* State */
   const [loaded, setLoaded] = useState(false);
   const [product, setProduct] = useState({});
   const [optionsStorage, setOptionsStorage] = useState([]);
@@ -25,6 +29,7 @@ function Detail() {
   const [form, setForm] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
 
+  /* Set axios body dynamically with form current values */
   const handleChange = (event) => {
     setForm({
       ...form,
@@ -32,6 +37,7 @@ function Detail() {
     });
   };
 
+  /* Call api, once user click on 'add to cart' button */
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoaded(false);
@@ -51,10 +57,12 @@ function Detail() {
     })();
   };
 
+  /* Scroll to top every render */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  /* Display breadcrumb 'detail' */
   useEffect(() => {
     const detailCrumb = document.querySelector('#Detail');
     detailCrumb.style.visibility = 'inherit';
@@ -62,6 +70,7 @@ function Detail() {
     detailCrumb.style.cursor = 'default';
   }, []);
 
+  /* Get Product */
   useEffect(() => {
     (async () => {
       try {
@@ -69,8 +78,10 @@ function Detail() {
           const url = `${process.env.REACT_APP_API_URL_PRODUCTS}/${productId}`;
           const { data } = await axios.get(url);
           setProduct(data);
+          /* Set Arrays with the option of selects */
           setOptionsStorage(data.options.storages || []);
           setOptionsColor(data.options.colors || []);
+          /* Set form with defautl values */
           setForm({
             id: productId,
             colorCode: data.options.colors ? data.options.colors[0].code : null,

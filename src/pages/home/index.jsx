@@ -17,21 +17,27 @@ import noResultsSvg from '../../assets/svg/noresults.svg';
 import topSvg from '../../assets/svg/top.svg';
 
 function Home() {
+  /* Hooks */
+  /* Context */
   const Products = [...useContext(ContextProducts)];
+  /* State */
   const [end, setEnd] = useState(ITEMS_DISPLAYED);
   const [searchTerm, setSearchTerm] = useState('');
   const [numCards, setNumCards] = useState(null);
 
   useEffect(() => {
+    /* Scroll to top every render */
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
+    /* Handling how many products are in the document */
     const items = document.getElementsByTagName('li');
     setNumCards(items.length);
   }, [Products]);
 
   useEffect(() => {
+  /* Hidding breadcrumb 'detail' */
     const detailCrumb = document.querySelector('#Detail');
     detailCrumb.style.visibility = 'hidden';
   }, []);
