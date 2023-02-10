@@ -2,7 +2,7 @@
 
 # IMPORTANT
 
-- Create .env file (there is an example '.env.example') and add endpoints' url.
+- Create .env file (there is a '.env.example') and add endpoints' url.
 
 
 # Invoices App
@@ -34,11 +34,12 @@ npm run build or yarn build
 
 ## Frontend Tools. ⚒️
 
-- HTML5.
+- ReactJs v18.2.
+- React router dom v6.8.2.
+- axios.
 - CSS Modules.
-- Javascript.
-- ReactJs(Framework).
 - Git and Github.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
