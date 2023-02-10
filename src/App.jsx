@@ -18,13 +18,17 @@ import Footer from './components/footer';
 import { PATH } from './constants';
 
 function App() {
+  /* State */
   const [products, setProducts] = useState([]);
   const [basket, setBasket] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [session, setSession] = useState();
 
+  /* Hooks */
+
   useEffect(() => {
+    /* Get Products and set session for 1h */
     (async () => {
       try {
         const getProductList = async () => {

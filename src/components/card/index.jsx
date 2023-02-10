@@ -5,7 +5,9 @@ import { PATH, SOLDOUT } from '../../constants';
 import style from './card.module.css';
 
 function Card(props) {
+  /* Props */
   const { product } = props;
+  /* Get values of product by destructuring */
   const {
     imgUrl, brand, model, price, id,
   } = product;

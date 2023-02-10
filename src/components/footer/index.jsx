@@ -8,8 +8,11 @@ import githubSvg from '../../assets/svg/github.svg';
 import linkedinSvg from '../../assets/svg/linkedin.svg';
 
 function Footer() {
+  /* Hooks */
+  /* State */
   const [year, setYear] = useState('');
 
+  /* Get current year */
   useEffect(() => {
     const date = new Date();
     setYear(date.getFullYear());
