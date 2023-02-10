@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, {
   useEffect, useState, useContext,
 } from 'react';
